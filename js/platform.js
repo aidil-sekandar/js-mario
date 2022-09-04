@@ -14,6 +14,16 @@ class Platform {
   }
 }
 
+const platform_scrolling_effects = () => {
+  platforms.forEach((platform) => {
+    if (keys.right.isPressed) {
+      platform.position.x -= 7;
+    } else if (keys.left.isPressed) {
+      platform.position.x += 7;
+    }
+  });
+};
+
 const platform_collision_detection_rect = () => {
   platforms.forEach((platform) => {
     const player_left = player.position.x;

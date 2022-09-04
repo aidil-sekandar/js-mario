@@ -5,7 +5,11 @@ canvas.width = 1100;
 canvas.height = 500;
 
 const player = new Player();
-const platforms = [new Platform({ x: 200, y: 300 }), new Platform({ x: 600, y: 400 })];
+const platforms = [
+  new Platform({ x: 200, y: 300 }),
+  new Platform({ x: 600, y: 400 }),
+  new Platform({ x: 400, y: 100 }),
+];
 
 const keys = {
   left: {

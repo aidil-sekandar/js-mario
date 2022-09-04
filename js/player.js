@@ -34,12 +34,14 @@ class Player {
 
 // player movement
 const player_movement_controller = () => {
-  if (keys.right.isPressed) {
+  if (keys.right.isPressed && player.position.x <= 600) {
     player.velocity.x = 7;
-  } else if (keys.left.isPressed) {
+  } else if (keys.left.isPressed && player.position.x >= 100) {
     player.velocity.x = -7;
   } else {
     player.velocity.x = 0;
+
+    platform_scrolling_effects();
   }
 };
 
