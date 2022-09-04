@@ -33,6 +33,17 @@ class Player {
 }
 
 // player movement
+const player_movement_controller = () => {
+  if (keys.right.isPressed) {
+    player.velocity.x = 7;
+  } else if (keys.left.isPressed) {
+    player.velocity.x = -7;
+  } else {
+    player.velocity.x = 0;
+  }
+};
+
+// key input
 window.addEventListener("keydown", ({ keyCode }) => {
   switch (keyCode) {
     case 65:
@@ -42,7 +53,7 @@ window.addEventListener("keydown", ({ keyCode }) => {
       keys.right.isPressed = true;
       break;
     case 87:
-      player.velocity.y = -6;
+      player.velocity.y = -8;
       break;
   }
 });
