@@ -3,7 +3,7 @@ class Player {
   constructor() {
     this.position = {
       x: 100,
-      y: 400,
+      y: 100,
     };
     this.velocity = {
       x: 0,
@@ -15,7 +15,7 @@ class Player {
   }
 
   draw() {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
@@ -33,11 +33,14 @@ class Player {
 }
 
 // player movement
+const standard_speed = 7;
+const jump_high = 8;
+
 const player_movement_controller = () => {
   if (keys.right.isPressed && player.position.x <= 600) {
-    player.velocity.x = 7;
+    player.velocity.x = standard_speed;
   } else if (keys.left.isPressed && player.position.x >= 100) {
-    player.velocity.x = -7;
+    player.velocity.x = -standard_speed;
   } else {
     player.velocity.x = 0;
 
@@ -46,26 +49,30 @@ const player_movement_controller = () => {
 };
 
 // key input
+const left = 65;
+const right = 68;
+const jump = 87;
+
 window.addEventListener("keydown", ({ keyCode }) => {
   switch (keyCode) {
-    case 65:
+    case left:
       keys.left.isPressed = true;
       break;
-    case 68:
+    case right:
       keys.right.isPressed = true;
       break;
-    case 87:
-      player.velocity.y = -8;
+    case jump:
+      player.velocity.y = -jump_high;
       break;
   }
 });
 
 window.addEventListener("keyup", ({ keyCode }) => {
   switch (keyCode) {
-    case 65:
+    case left:
       keys.left.isPressed = false;
       break;
-    case 68:
+    case right:
       keys.right.isPressed = false;
       break;
   }

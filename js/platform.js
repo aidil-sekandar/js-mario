@@ -5,11 +5,11 @@ class Platform {
       y,
     };
     this.width = 300;
-    this.height = 15;
+    this.height = 5;
   }
 
   draw() {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "orange";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
@@ -17,9 +17,9 @@ class Platform {
 const platform_scrolling_effects = () => {
   platforms.forEach((platform) => {
     if (keys.right.isPressed) {
-      platform.position.x -= 7;
+      platform.position.x -= standard_speed;
     } else if (keys.left.isPressed) {
-      platform.position.x += 7;
+      platform.position.x += standard_speed;
     }
   });
 };
