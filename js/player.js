@@ -11,7 +11,7 @@ class Player {
     };
     this.width = 30;
     this.height = 30;
-    this.gravity = 0.55;
+    this.gravity = 0.5;
   }
 
   draw() {
@@ -20,6 +20,7 @@ class Player {
   }
 
   update() {
+    this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     this.draw();
 
@@ -33,31 +34,26 @@ class Player {
 
 // player movement
 window.addEventListener("keydown", ({ keyCode }) => {
-  console.log(keyCode);
   switch (keyCode) {
     case 65:
-      console.log("left");
+      keys.left.isPressed = true;
       break;
     case 68:
-      console.log("right");
+      keys.right.isPressed = true;
       break;
     case 87:
-      console.log("jump");
+      player.velocity.y = -6;
       break;
   }
 });
 
 window.addEventListener("keyup", ({ keyCode }) => {
-  console.log(keyCode);
   switch (keyCode) {
     case 65:
-      console.log("left");
+      keys.left.isPressed = false;
       break;
     case 68:
-      console.log("right");
-      break;
-    case 87:
-      console.log("jump");
+      keys.right.isPressed = false;
       break;
   }
 });
